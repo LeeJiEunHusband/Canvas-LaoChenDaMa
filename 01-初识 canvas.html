@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-初识 canvas</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+      // 第一步：获取 canvas 元素
+      /** @type {HTMLCanvasElement} */
+      const canvas = document.getElementById('canvas');
+
+      // 第二步：获取 2D 绘图上下文对象
+      /** @type {CanvasRenderingContext2D} */
+      const ctx = canvas.getContext('2d');
+
+      // 第三步：设置 2D 绘图状态
+      ctx.fillStyle = 'pink';
+
+      // 第四步：调用 2D 绘图 API 开始绘制
+      ctx.fillRect(100, 100, 200, 100);
+    </script>
+  </body>
+</html>

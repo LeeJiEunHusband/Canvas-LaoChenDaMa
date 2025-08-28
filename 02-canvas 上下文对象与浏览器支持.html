@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-canvas 上下文对象与浏览器支持</title>
+  </head>
+  <body>
+    <!-- 当浏览器不支持 canvas 标签时，会显示 canvas 标签的内容 -->
+    <canvas id="canvas" width="500" height="500">
+      抱歉，您的浏览器不支持 canvas，请升级到现代浏览器（如 Chrome 或
+      Firefox）。
+    </canvas>
+    <script>
+      /** @type {HTMLCanvasElement} */
+      const canvas = document.getElementById('canvas');
+
+      // 通过判断 getContext 是否存在，来检测浏览器是否支持 canvas
+      if (!canvas.getContext) {
+        console.log('检测到浏览器不支持 canvas，请升级到现代浏览器。');
+      }
+
+      /** @type {CanvasRenderingContext2D} */
+      const ctx = canvas.getContext('2d');
+      console.log('ctx', ctx);
+
+      ctx.fillStyle = 'pink';
+
+      ctx.fillRect(100, 100, 200, 100);
+    </script>
+  </body>
+</html>

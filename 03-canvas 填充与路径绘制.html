@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-canvas 填充与路径绘制</title>
+  </head>
+  <body>
+    <!-- canvas 标签的 width / height 属性决定绘图坐标系大小，而 style 的宽高只影响显示大小，会导致自动缩放效果 -->
+    <canvas
+      id="canvas"
+      width="500"
+      height="500"
+      style="width: 100px; height: 100px"
+    ></canvas>
+    <script>
+      /** @type {HTMLCanvasElement} */
+      const canvas = document.getElementById('canvas');
+
+      /** @type {CanvasRenderingContext2D} */
+      const ctx = canvas.getContext('2d');
+
+      ctx.fillStyle = 'pink';
+
+      // 填充
+      // ctx.fillRect(100, 100, 200, 100);
+
+      // 等价于
+      ctx.rect(100, 100, 200, 100);
+      ctx.fill();
+    </script>
+  </body>
+</html>

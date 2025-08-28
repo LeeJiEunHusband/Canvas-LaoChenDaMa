@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05-canvas 填充与路径绘制</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+      /** @type {HTMLCanvasElement} */
+      const canvas = document.getElementById('canvas');
+
+      /** @type {CanvasRenderingContext2D} */
+      const ctx = canvas.getContext('2d');
+
+      ctx.fillStyle = 'skyblue';
+      ctx.strokeStyle = 'pink';
+
+      // ctx.fillRect(200, 150, 200, 100);
+      // ctx.strokeRect(100, 100, 200, 100);
+      // 等价于
+
+      // 开始一条新路径
+      ctx.beginPath();
+      ctx.rect(200, 150, 200, 100);
+      ctx.fill();
+      // 结束当前路径
+      ctx.closePath();
+
+      // 再次开始一条新路径，
+      ctx.beginPath();
+      ctx.rect(100, 100, 200, 100);
+      ctx.stroke();
+      // 结束当前路径
+      ctx.closePath();
+
+      let height = 0;
+      const timer = setInterval(() => {
+        ctx.clearRect(0, 0, canvas.clientWidth, height);
+        height++;
+        if (height > canvas.clientHeight) {
+          clearInterval(timer);
+        }
+      }, 10);
+    </script>
+  </body>
+</html>
