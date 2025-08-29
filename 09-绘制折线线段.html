@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>09-绘制折线线段</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+      /** @type {HTMLCanvasElement} */
+      const canvas = document.getElementById('canvas');
+
+      /** @type {CanvasRenderingContext2D} */
+      const ctx = canvas.getContext('2d');
+
+      ctx.strokeStyle = 'pink';
+
+      ctx.beginPath();
+
+      // 起点：移动到 (250, 250)
+      ctx.moveTo(250, 250);
+
+      // 从 (250, 250) 画一条直线到 (150, 250)
+      ctx.lineTo(150, 250);
+
+      // 再从 (150, 250) 画一条直线到 (150, 150)
+      ctx.lineTo(150, 150);
+
+      // 再从 (150, 150) 画一条直线回到 (250, 250)，形成一个折线闭合形状
+      ctx.lineTo(250, 250);
+
+      ctx.stroke();
+      ctx.closePath();
+    </script>
+  </body>
+</html>

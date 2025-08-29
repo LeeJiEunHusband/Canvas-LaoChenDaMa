@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11-二次贝塞尔曲线实现聊天气泡框</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+      /** @type {HTMLCanvasElement} */
+      const canvas = document.getElementById('canvas');
+
+      /** @type {CanvasRenderingContext2D} */
+      const ctx = canvas.getContext('2d');
+
+      ctx.strokeStyle = 'pink';
+
+      // 气泡框中心 (250, 250)，宽度 200，高度 100
+      // 左边界 = 150，右边界 = 350，上边界 = 200，下边界 = 300
+      ctx.beginPath();
+
+      // 起点：下边框中间靠左 (210, 300)
+      ctx.moveTo(210, 300);
+
+      // 左下角弧线：从 (210, 300) 向左下角 (150, 300)，再收束到左边界中点 (150, 250)
+      ctx.quadraticCurveTo(150, 300, 150, 250);
+
+      // 左上角弧线：从 (150, 250) 向上到左上角 (150, 200)，再平滑到上边界中点 (250, 200)
+      ctx.quadraticCurveTo(150, 200, 250, 200);
+
+      // 右上角弧线：从 (250, 200) 向右上角 (350, 200)，再平滑到右边界中点 (350, 250)
+      ctx.quadraticCurveTo(350, 200, 350, 250);
+
+      // 右下角弧线：从 (350, 250) 向右下角 (350, 300)，再平滑到下边界中点 (250, 300)
+      ctx.quadraticCurveTo(350, 300, 250, 300);
+
+      // 向下偏移，形成尾巴右侧
+      ctx.quadraticCurveTo(230, 330, 200, 350);
+
+      // 收束回来，形成尾巴左侧
+      ctx.quadraticCurveTo(215, 330, 210, 300);
+
+      ctx.stroke();
+      ctx.closePath();
+
+      const drawPoint = (x, y, color = 'black') => {
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.closePath();
+      };
+
+      // 非控制点
+      drawPoint(210, 300);
+      drawPoint(150, 250);
+      drawPoint(250, 200);
+      drawPoint(350, 250);
+      drawPoint(250, 300);
+      drawPoint(200, 350);
+
+      // 控制点
+      drawPoint(150, 300, 'red');
+      drawPoint(150, 200, 'red');
+      drawPoint(350, 200, 'red');
+      drawPoint(350, 300, 'red');
+      drawPoint(230, 330, 'red');
+      drawPoint(215, 330, 'red');
+    </script>
+  </body>
+</html>

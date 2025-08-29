@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>08-canvas 绘制圆弧与笑脸</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+      /** @type {HTMLCanvasElement} */
+      const canvas = document.getElementById('canvas');
+
+      /** @type {CanvasRenderingContext2D} */
+      const ctx = canvas.getContext('2d');
+
+      ctx.strokeStyle = 'pink';
+
+      // 绘制笑脸
+      ctx.beginPath();
+      ctx.arc(200, 200, 100, 0, Math.PI * 2);
+      // 开始一个新的子路径
+      ctx.moveTo(275, 200);
+
+      ctx.arc(200, 200, 75, 0, Math.PI);
+      // 开始一个新的子路径
+      ctx.moveTo(160, 165);
+
+      ctx.arc(150, 165, 10, 0, Math.PI * 2);
+      // 开始一个新的子路径
+      ctx.moveTo(260, 165);
+
+      ctx.arc(250, 165, 10, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.closePath();
+    </script>
+  </body>
+</html>

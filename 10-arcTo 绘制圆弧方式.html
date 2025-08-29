@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10-arcTo 绘制圆弧方式</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+      /** @type {HTMLCanvasElement} */
+      const canvas = document.getElementById('canvas');
+
+      /** @type {CanvasRenderingContext2D} */
+      const ctx = canvas.getContext('2d');
+
+      ctx.strokeStyle = 'pink';
+
+      ctx.beginPath();
+
+      // 起点：移动到 (250, 250)
+      ctx.moveTo(250, 250);
+
+      // 理解 arcTo() 方法的一种方式是想象两条直线段：一条从起始点到第一个控制点，另一条从第一个控制点到第二个控制点。如果没有 arcTo() 方法，这两条线段会形成一个尖角：arcTo() 方法在这个角落创建一个圆弧，并使其平滑连接。
+      ctx.arcTo(250, 375, 125, 375, 75);
+
+      ctx.stroke();
+      ctx.closePath();
+    </script>
+  </body>
+</html>
