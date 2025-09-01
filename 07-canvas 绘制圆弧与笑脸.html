@@ -17,21 +17,26 @@
       ctx.strokeStyle = 'pink';
 
       // 绘制笑脸
+
+      // 1. 外圆（脸的轮廓）
       ctx.beginPath();
       ctx.arc(200, 200, 100, 0, Math.PI * 2);
       ctx.stroke();
       ctx.closePath();
 
+      // 2. 嘴巴
       ctx.beginPath();
       ctx.arc(200, 200, 75, 0, Math.PI);
       ctx.stroke();
       ctx.closePath();
 
+      // 3. 左眼
       ctx.beginPath();
       ctx.arc(150, 165, 10, 0, Math.PI * 2);
       ctx.stroke();
       ctx.closePath();
 
+      // 4. 右眼
       ctx.beginPath();
       ctx.arc(250, 165, 10, 0, Math.PI * 2);
       ctx.stroke();

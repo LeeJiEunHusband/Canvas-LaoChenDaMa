@@ -28,18 +28,27 @@
       // 结束当前路径
       ctx.closePath();
 
-      // 再次开始一条新路径，
+      // 再次开始一条新路径
       ctx.beginPath();
       ctx.rect(100, 100, 200, 100);
       ctx.stroke();
       // 结束当前路径
       ctx.closePath();
 
+      // 定义一个变量，表示已经清除的高度
       let height = 0;
+
+      // 开启一个定时器，每隔 10 毫秒执行一次
       const timer = setInterval(() => {
+        // 从画布左上角 (0, 0) 开始，清除高度为 height 的矩形区域
         ctx.clearRect(0, 0, canvas.clientWidth, height);
+
+        // 清除高度逐步递增
         height++;
+
+        // 当清除的高度超过画布的整体高度时，说明整个画布已经被清空
         if (height > canvas.clientHeight) {
+          // 停止定时器，不再继续执行
           clearInterval(timer);
         }
       }, 10);
