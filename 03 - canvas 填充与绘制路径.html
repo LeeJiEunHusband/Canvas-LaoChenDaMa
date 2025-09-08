@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>03 - canvas 填充与路径绘制</title>
+    <title>03 - canvas 填充与绘制路径</title>
   </head>
   <body>
-    <!-- canvas 标签的 width / height 属性决定绘图坐标系大小，而 style 的宽高只影响显示大小，会导致自动缩放效果 -->
+    <!-- canvas 元素的 width / height 属性决定绘图坐标系大小，而 style 的宽高只影响显示大小，会导致自动缩放效果。 -->
     <canvas
       id="canvas"
       width="500"
@@ -22,11 +22,13 @@
 
       ctx.fillStyle = 'pink';
 
-      // 填充
+      // 填充路径
       // ctx.fillRect(100, 100, 200, 100);
 
       // 等价于
+      // 第一步：添加矩形为当前路径
       ctx.rect(100, 100, 200, 100);
+      // 第二步：填充当前路径
       ctx.fill();
     </script>
   </body>

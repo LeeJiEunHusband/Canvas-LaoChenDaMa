@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>05 - canvas 填充与路径绘制</title>
+    <title>05 - canvas 填充与绘制路径</title>
   </head>
   <body>
     <canvas id="canvas" width="500" height="500"></canvas>
@@ -19,20 +19,20 @@
 
       // ctx.fillRect(200, 150, 200, 100);
       // ctx.strokeRect(100, 100, 200, 100);
-      // 等价于
 
-      // 开始一条新路径
+      // 等价于
+      // 清空子路径列表开始一个新路径
       ctx.beginPath();
       ctx.rect(200, 150, 200, 100);
       ctx.fill();
-      // 结束当前路径
+      // 从当前点添加一条直线到当前子路径的起点
       ctx.closePath();
 
-      // 再次开始一条新路径
+      // 再次清空子路径列表开始一个新路径
       ctx.beginPath();
       ctx.rect(100, 100, 200, 100);
       ctx.stroke();
-      // 结束当前路径
+      // 从当前点添加一条直线到当前子路径的起点
       ctx.closePath();
 
       // 定义一个变量，表示已经清除的高度

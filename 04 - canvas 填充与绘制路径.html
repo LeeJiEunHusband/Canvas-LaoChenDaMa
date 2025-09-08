@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>04 - canvas 填充与路径绘制</title>
+    <title>04 - canvas 填充与绘制路径</title>
   </head>
   <body>
     <canvas id="canvas" width="500" height="500"></canvas>
@@ -14,13 +14,15 @@
       /** @type {CanvasRenderingContext2D} */
       const ctx = canvas.getContext('2d');
 
-      ctx.strokeStyle = 'pink';
+      ctx.strokeStyle = 'pink'; // 设置描边样式
 
-      // 路径绘制
-      // ctx.strokeRect(100, 100, 200, 100);
+      // 绘制路径
+      // ctx.strokeRect(100, 100, 200, 100); // 绘制矩形
 
       // 等价于
+      // 第一步：添加矩形为当前路径
       ctx.rect(100, 100, 200, 100);
+      // 第二步：绘制当前路径
       ctx.stroke();
     </script>
   </body>
